@@ -1,70 +1,40 @@
-# AWS Auto Scaling Web Architecture
+# AWS Auto Scaling + Application Load Balancer (High Availability Project)
 
-## Overview
-This project demonstrates a highly available and scalable web architecture using AWS services including EC2, Application Load Balancer (ALB), Target Groups, and Auto Scaling.
+## 🚀 Project Overview
 
-The system automatically distributes traffic and replaces unhealthy instances while maintaining availability.
+This project demonstrates how to build a **scalable, highly available web architecture** on AWS using:
 
----
+- EC2 (Compute)
+- Application Load Balancer (ALB)
+- Target Groups (Health Checks)
+- Auto Scaling Groups (ASG)
+- Launch Templates
 
-## Architecture
-- Application Load Balancer routes traffic
-- Target Group monitors instance health
-- Auto Scaling Group maintains desired capacity
-- EC2 instances run Nginx web server
-
----
-
-## Features
-- Load balancing across multiple instances
-- Health checks and automatic replacement
-- Auto Scaling group with dynamic capacity
-- High availability across multiple Availability Zones
+The goal was to simulate a real-world production setup where traffic is distributed across multiple servers and infrastructure can scale automatically.
 
 ---
 
-## Screenshots
+## 🧠 Architecture Summary
 
-### Load Balancer
-ALB
+Client Request → ALB → Target Group → EC2 Instances (ASG)
 
-### Target Group (Healthy)
-Target Group
-
-### Auto Scaling Group
-ASG
-
-### Live Application
-App
+- **ALB** distributes incoming traffic
+- **Target Group** monitors instance health
+- **Auto Scaling Group** maintains desired capacity
+- **Launch Template** defines instance configuration
 
 ---
 
-## Verification
+## 🛠️ Technologies Used
 
-The Application Load Balancer DNS successfully served traffic to Auto Scaling instances.
-
-Result:
-Auto Scaling Server
-
-This confirms:
-- Load balancer is routing traffic
-- Instances are healthy
-- Auto Scaling is functioning correctly
+- AWS EC2
+- AWS Application Load Balancer
+- AWS Auto Scaling
+- Node.js
+- Linux (Ubuntu)
 
 ---
 
-## Lessons Learned
-- Infrastructure must be automated using launch templates
-- Manual configuration does not scale
-- Health checks are critical for system reliability
-- Auto Scaling ensures system resilience under failure
+## ⚙️ Application
 
----
-
-## Future Improvements
-- Add HTTPS using ACM
-- Deploy a real web application (Node.js)
-- Add monitoring with CloudWatch dashboards
-- Implement CI/CD pipeline
-
----
+A simple Node.js web server was deployed to each EC2 instance:
