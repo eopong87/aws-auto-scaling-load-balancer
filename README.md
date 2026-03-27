@@ -93,9 +93,20 @@ sudo node app.js
 
 ---
 
-## Future Improvements
+## Automation & High Availability
 
-- Automate application startup using User Data scripts  
+This project demonstrates a fully automated, self-healing infrastructure using AWS Auto Scaling and an Application Load Balancer.
+
+- Instances are launched automatically using a Launch Template
+- Auto Scaling Group maintains desired capacity (2 instances)
+- Load Balancer distributes traffic across instances
+- Health checks monitor instance availability
+- Unhealthy instances are automatically replaced without manual intervention
+
+### Key Outcome
+Successfully implemented a high availability architecture where infrastructure scales and recovers automatically without manual input.
+
+## Future Improvements 
 - Run application on port 3000 with reverse proxy  
 - Implement CI/CD pipeline for deployments  
 - Add CloudWatch alarms for scaling events  
