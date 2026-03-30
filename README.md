@@ -106,6 +106,37 @@ This project demonstrates a fully automated, self-healing infrastructure using A
 ### Key Outcome
 Successfully implemented a high availability architecture where infrastructure scales and recovers automatically without manual input.
 
+## Testing and Scaling Validation
+
+To validate Auto Scaling behavior:
+
+- Generated traffic using curl loops against the ALB DNS
+- Simulated CPU load using the stress tool on EC2 instances
+- Observed CPU utilization increase via CloudWatch
+- Confirmed Auto Scaling triggered additional instance launch
+
+Result:
+- System scaled from 2 → 3 instances under load
+- Load balancer continued distributing traffic across instances
+- Architecture successfully handled increased demand automatically
+
+- ## Key Learnings
+
+- Auto Scaling is triggered by metrics, not just traffic
+- Lightweight applications may not generate enough CPU load
+- Proper threshold tuning is critical for scaling responsiveness
+- Load testing must simulate realistic resource consumption
+
+- ## Automation Validation
+
+After updating the launch template and running an instance refresh, new EC2 instances were launched automatically and joined the target group without manual configuration.
+
+Result:
+- 2 healthy targets behind the Application Load Balancer
+- successful rolling instance replacement
+- automated application startup confirmed
+- high availability maintained during refresh
+
 ## Future Improvements 
 - Run application on port 3000 with reverse proxy  
 - Implement CI/CD pipeline for deployments  
